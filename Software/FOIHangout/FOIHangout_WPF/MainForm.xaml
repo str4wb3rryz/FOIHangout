@@ -1,0 +1,50 @@
+<Window x:Class="FOIHangout_WPF.MainForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FOIHangout_WPF"
+        mc:Ignorable="d"
+        Title="FOIHangout" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Image">
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <DockPanel x:Name="navPanel" Grid.Row="0" Height="110" Background="#FFCE003D">
+            <DockPanel Height="80" DockPanel.Dock="Top">
+                <Image x:Name="imgProfile" Height="80" Width="80" HorizontalAlignment="Left" Margin="20,0,0,0" Source="PicturesAndIcons/blank_pfp.png" MouseDown="imgProfile_MouseDown"/>
+                <DockPanel DockPanel.Dock="Top" Margin="10,10,0,0" HorizontalAlignment="Left">
+                    <Label Content="Dobrodošli," FontWeight="Bold" FontSize="15" Foreground="White"/>
+                    <Label Name="lblLoggedUser" Content="{Binding LoggedUser}" FontSize="15" Foreground="White"/>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Bottom" Margin="10,0,0,10">
+                    <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
+                        <Button x:Name="btnHome" Content="&#xE80F;" FontFamily="Segoe MDL2 Assets" ToolTip="Početna" FontSize="20"  Width="100" Background="#FFCE003D" Foreground="White" Click="btnHome_Click"/>
+                        <Button x:Name="btnFriends" Content="&#xE716;" FontFamily="Segoe MDL2 Assets" ToolTip="Prijatelji" FontSize="20"  Width="100" Background="#FFCE003D" Foreground="White" Margin="10,0,0,0" Click="btnFriends_Click"/>
+                        <Button x:Name="btnEvents" Content="&#xE787;" FontFamily="Segoe MDL2 Assets" ToolTip="Događaji" FontSize="20"  Width="100" Background="#FFCE003D" Foreground="White" Margin="10,0,0,0" Click="btnEvents_Click"/>
+                        <Button x:Name="btnPolls" Content="&#xE9D5;" FontFamily="Segoe MDL2 Assets" ToolTip="Ankete" FontSize="20"  Width="100" Background="#FFCE003D" Foreground="White" Margin="10,0,0,0" Click="btnPolls_Click" />
+                        <Button x:Name="btnNotifications" Content="&#xEA8F;" FontFamily="Segoe MDL2 Assets" ToolTip="Obavijesti" FontSize="20"  Width="100" Background="#FFCE003D" Foreground="White" Margin="10,0,0,0" Click="btnNotifications_Click"/>
+                        <Button x:Name="btnAdminOptions" Content="&#xE7EF;" FontFamily="Segoe MDL2 Assets" ToolTip="Dodatne opcije za admina" FontSize="20"  Width="100" Background="#FFCE003D" Foreground="White" Margin="10,0,0,0" Click="btnAdminOptions_Click"/>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
+                        <Button x:Name="btnLogout" Content="&#xF3B1;" FontFamily="Segoe MDL2 Assets" ToolTip="Odjava" FontSize="20" Width="100" Background="#FFCE003D" Foreground="White" Margin="0,0,10,0" Click="btnLogout_Click"/>
+                    </DockPanel>
+                </DockPanel>
+            </DockPanel>
+        </DockPanel>
+
+        <ContentControl x:Name="contentControl" Grid.Row="1" HorizontalAlignment="Center"/>
+
+        <DockPanel Grid.Row="2" Height="30" Background="#FFF5F5F5">
+            <Label Content="FOI Hangout © 2024" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </DockPanel>
+    </Grid>
+</Window>

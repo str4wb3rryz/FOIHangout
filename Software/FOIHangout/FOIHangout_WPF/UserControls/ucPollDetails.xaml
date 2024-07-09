@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="FOIHangout_WPF.UserControls.ucPollDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FOIHangout_WPF.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <StackPanel Background="#20006A8D" Margin="10">
+        <StackPanel x:Name="pollDetailsPanel" DockPanel.Dock="Top" Margin="25">
+            <TextBlock x:Name="tbPollTitle" Text="Poll Title" FontSize="20" FontWeight="SemiBold" Margin="10"/>
+            <TextBlock x:Name="tbPollDesc" Text="Poll Description" Margin="10" TextWrapping="Wrap"  Width="910" />
+
+            <StackPanel x:Name="rbYesNo" Visibility="Collapsed" Margin="10,10,0,0">
+                <RadioButton x:Name="rbYes" Content="Da" Margin="5"/>
+                <RadioButton x:Name="rbNo" Content="Ne" Margin="5"/>
+            </StackPanel>
+
+            <ItemsControl x:Name="spChoices" Visibility="Collapsed" Margin="10,10,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton x:Name="rbChoice" Tag="{Binding}" Content="{Binding}" GroupName="MultipleChoiceOptions" Margin="5"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <TextBlock x:Name="tbVotingDone" Text="Već ste glasali" Margin="10" Visibility="Collapsed"/>
+            <TextBlock x:Name="tbVotingEnded" Text="Glasanje je zatvoreno" Margin="10,10,0,0" Visibility="Collapsed"/>
+            <TextBlock x:Name="tbVotingResults" Margin="10" Visibility="Collapsed"/>
+            <Button x:Name="btnAddVote" Content="Glasaj" Width="100" Height="30" Background="#006A8D" Foreground="White" Margin="0,10,0,10" Click="btnAddVote_Click" />
+            <Button x:Name="btnReturn" Content="Vrati se na prikaz" Width="100" Height="30" Background="#006A8D" Foreground="White" Margin="0,10,0,10" Click="btnReturn_Click"  />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="FOIHangout_WPF.ucLogin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FOIHangout_WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border DockPanel.Dock="Top" Height="100" Background="#FFce003d">
+            <TextBlock Text="FOI Hangout" Foreground="White" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10"/>
+        </Border>
+        <Grid Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Email" Grid.Column="0" Grid.Row="0" />
+            <TextBox x:Name="txtEmail" Grid.Column="1" Grid.Row="0" MinWidth="100" Height="20" MaxLength="11" Background="#FFE8F0FE"/>
+            <Label Content="@student.foi.hr" Grid.Column="3" Grid.Row="0"/>
+            <Label Content="Lozinka" Grid.Column="0"  Grid.Row="1"/>
+            <PasswordBox x:Name="pbPassword" PasswordChar="*"  Grid.Column="1" Grid.Row="1" MinWidth="100" Height="20" Background="#FFE8F0FE"/>
+            <TextBox x:Name="txtPassword" Visibility="Collapsed" Grid.Column="1"  Grid.Row="1" MinWidth="100" Height="20" Background="#FFE8F0FE"/>
+            <Button x:Name="btnShowPassword" Grid.Column="3" Grid.Row="1" Height="20" Click="btnShowPassword_Click" Background="#FF006A8D">
+                <Image x:Name="imgPassword" Source="../PicturesAndIcons/show.png"></Image>
+            </Button>
+        </Grid>
+
+        <DockPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,10,10,10">
+            <Button x:Name="btnLogin" Content="Prijava" Click="btnLogin_Click" Background="#FF006A8D" Foreground="White"/>
+        </DockPanel>
+
+        <DockPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,10,10,10">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Nemaš račun?" HorizontalContentAlignment="Center"/>
+                <Button x:Name="btnRegister" Content="Registraj se" Click="btnRegister_Click" Background="#FF006A8D" Foreground="White"/>
+            </StackPanel>
+        </DockPanel>
+    </StackPanel>
+</UserControl>

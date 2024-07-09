@@ -1,0 +1,55 @@
+<UserControl x:Class="FOIHangout_WPF.UserControls.ucRegisterThird"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FOIHangout_WPF.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border DockPanel.Dock="Top" Height="100" Background="#FFce003d">
+            <TextBlock Text="Registracija" Foreground="White" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10"/>
+        </Border>
+        <Border BorderBrush="#FFce003d" BorderThickness="5">
+            <StackPanel>
+                <Grid Margin="10,10,10,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Odaberi društvenu mrežu" Grid.Column="0"  Grid.Row="0" Margin="0,0,10,0" HorizontalContentAlignment="Center"/>
+                    <ComboBox x:Name="cbSocialMedia" Grid.Column="0" Grid.Row="1" Margin="0,5,10,0" DisplayMemberPath="naziv" Loaded="cbSocialMedia_Loaded"/>
+                    <Label Content="Upiši naziv profila na odabranoj društvenoj mreži:" Grid.Column="0" Grid.Row="2" Margin="0,0,10,0"/>
+                    <TextBox x:Name="txtSocialMediaLink" Grid.Column="0" Grid.Row="3" Margin="0,5,10,0" Background="#FAF4E1"/>
+                    <Button x:Name="btnAddSocialMediaLink" Grid.Column="0" Grid.Row="4" Margin="0,10,0,0" Content="Dodaj" Background="#Ffeeba1c" HorizontalAlignment="Left" Width="100" Click="btnAddSocialMediaLink_Click"/>
+                    <TextBlock x:Name="tbSocialMedia" Grid.Column="0" Grid.Row="4"  Margin="0,5,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="&#128712;" FontSize="15" ToolTip="Svaki korisnik može imati registriran po jedan profil za jednu društvenu mrežu."/>
+                    <Button x:Name="btnDeleteSocialMediaLink" Grid.Column="0" Grid.Row="4" Margin="0,10,10,0" Content="Obriši" Background="#Ffeeba1c" HorizontalAlignment="Right" Width="100" Click="btnDeleteSocialMediaLink_Click"/>
+                    <DataGrid x:Name="dgSocialMedia" AutoGenerateColumns="False" Grid.Column="1" Grid.RowSpan="5" Width="220" ScrollViewer.VerticalScrollBarVisibility="Auto" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Društvena mreža" Binding="{Binding SocialMediaName}" Width="*"/>
+                            <DataGridTextColumn Header="Profil" Binding="{Binding SocialMediaLink}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10,10,10,10">
+                    <DockPanel DockPanel.Dock="Top">
+                        <Button x:Name="btnPrevious" Content="Prethodno" Width="100" HorizontalAlignment="Left" Click="btnPrevious_Click" Background="#006A8D" Foreground="White" Margin="0,0,10,0"/>
+                        <Button x:Name="btnRegister" Content="Registriraj se" Width="100" HorizontalAlignment="Right" Click="btnRegister_Click" Background="#006A8D" Foreground="White" Margin="10,0,0,0"/>
+                    </DockPanel>
+                    <Button x:Name="btnReturn" Content="Vrati se na prijavu" DockPanel.Dock="Bottom"  Margin="0,10,0,0" Click="btnReturn_Click" Background="#006A8D" Foreground="White"/>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+
+</UserControl>

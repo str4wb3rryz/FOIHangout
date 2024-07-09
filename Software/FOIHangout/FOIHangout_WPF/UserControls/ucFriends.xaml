@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="FOIHangout_WPF.UserControls.ucFriends"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FOIHangout_WPF.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <ListView x:Name="lvRecommendedUsers" MouseDoubleClick="lvRecommendedUsers_MouseDoubleClick" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Preporuke sa 3 ili više istih interesa: " DisplayMemberBinding="{Binding UserFullName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvRecommendedUsers2" MouseDoubleClick="lvRecommendedUsers2_MouseDoubleClick" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Preporuke sa bar 2 istih interesa: " DisplayMemberBinding="{Binding UserFullName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvRecievedFriendRequests" MouseDoubleClick="lvRecievedFriendRequests_MouseDoubleClick" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Zahtjevi za prijateljstvo: " DisplayMemberBinding="{Binding SenderFullName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvFriends" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Prijatelji: " DisplayMemberBinding="{Binding FriendFullName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</UserControl>
